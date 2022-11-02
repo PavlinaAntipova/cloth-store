@@ -34,7 +34,7 @@ const Layout = () => {
     }, [isShownMenu]);
 
     return (<>
-        {(isLoading || isFetching) ? <Loader isError={isError} /> : <Wrapper>
+        {(isLoading || isFetching) ? <Loader isError={isError} size={true} /> : <Wrapper>
             <Container>
                 <Menu categories={data.categories} isShownMenu={isShownMenu} setIsShownMenu={setIsShownMenu}/>
                 <Content>

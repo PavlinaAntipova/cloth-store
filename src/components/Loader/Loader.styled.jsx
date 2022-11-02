@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const StyledLoader = styled.div`
-position: absolute;
-height: 100vh;
-width: 100vw;
+position: fixed;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
 z-index: 999999;
 background-color: #fff;
 display: flex;
