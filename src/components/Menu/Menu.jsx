@@ -17,15 +17,6 @@ const Menu = ({categories, isShownMenu, setIsShownMenu}) => {
   const isMobile = useMediaQuery({ query: '(max-width: 1099px)' });
 
   const onCloseMenu = (e) => {
-    // console.log(e.target);
-
-    // if (e.target.dataset.name === "dropdownBtn") {
-    //   return;
-    // }
-
-    // if (e.currentTarget === e.target) {
-    //   return;
-    // }
 
     if (e.target.dataset.name === "closeBtn") {
       setIsShownMenu(false);

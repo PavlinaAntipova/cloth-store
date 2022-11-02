@@ -31,7 +31,7 @@ const GalleryItem = ({ product }) => {
 
   const onBuyBtn = () => {
     addToLocalStorage(product);
-    toast(`${product.name.toLowerCase()} has added to cart!`);
+    toast(`${product.name.toLowerCase()} was added to cart!`);
   }
 
   useEffect(() => {

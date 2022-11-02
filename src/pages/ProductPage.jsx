@@ -43,7 +43,7 @@ const ProductPage = () => {
 
    const onBuyBtn = () => {
      addToLocalStorage(data.products[0]);
-      toast(`${data.products[0].name.toLowerCase()} has added to cart!`);
+      toast(`${data.products[0].name.toLowerCase()} was added to cart!`);
   }
 
 
