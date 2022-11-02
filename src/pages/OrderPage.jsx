@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
   
 import { Btn, Input, Section, Select, TitleSection } from "helper/CommonStyledComponents";
@@ -14,21 +15,29 @@ const OrderPage = () => {
   const [delivery, setDelivery] = useState('');
   const [payment, setPayment] = useState('');
 
+  const navigate = useNavigate();
+
+
   const onSubmit = (e) => {
     e.preventDefault();
     const cartList = localStorage.getItem('cart');
     const parsedCartList = JSON.parse(cartList);
+    if(name === "" || surname === "" || email === "" || phone === "" || delivery === "" || payment === "" || !parsedCartList || parsedCartList.length === 0) {
+      return;
+    }
     postOrder({ name, surname, email, phone, delivery, payment, cart: parsedCartList }).then(response => {
-      if (response.status === "success") {
+      localStorage.setItem("cart", JSON.stringify([]));
       setName("");
       setSurname("");
       setPhone("");
       setDelivery("");
       setEmail("");
       setPayment("");
-      toast(`${response.data.order.name} ${response.data.order.surname}, thank you for your order`);
-      }
+      return response.data.order;
       
+    }).then((order) => {
+      toast(`${order.name} ${order.surname}, thank you for your order`);
+      navigate("/");
     }).catch((err) => {
       console.log(err);
       toast.error("Something went wrong :( Try again");
