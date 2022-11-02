@@ -12,7 +12,7 @@ const OrderPage = () => {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [delivery, setDelivery] = useState('');
+  const [delivery, setDelivery] = useState('delivery');
   const [payment, setPayment] = useState('');
 
   const navigate = useNavigate();
@@ -22,7 +22,8 @@ const OrderPage = () => {
     e.preventDefault();
     const cartList = localStorage.getItem('cart');
     const parsedCartList = JSON.parse(cartList);
-    if(name === "" || surname === "" || email === "" || phone === "" || delivery === "" || payment === "" || !parsedCartList || parsedCartList.length === 0) {
+    if (!name || !surname || !email || !phone || !delivery || !payment || !parsedCartList || !parsedCartList.length) {
+      toast.error("Fill info about you, please");
       return;
     }
     postOrder({ name, surname, email, phone, delivery, payment, cart: parsedCartList }).then(response => {
