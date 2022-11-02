@@ -45,7 +45,7 @@ const Header = ({setIsShownMenu}) => {
     setIsShownMenu(true);
   }
   
-    return (<StyledHeader>
+    return (<StyledHeader id="header">
       <Title>{location.pathname !== "/" ? getTitle() : "Home"}</Title>
       <Links>
         <Link to="cart"><FontAwesomeIcon icon={faCartShopping} /></Link>

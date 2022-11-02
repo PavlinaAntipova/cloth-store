@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
@@ -30,6 +31,7 @@ const GalleryItem = ({ product }) => {
 
   const onBuyBtn = () => {
     addToLocalStorage(product);
+    toast(`${product.name.toLowerCase()} has added to cart!`);
   }
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const GalleryItem = ({ product }) => {
             
             
             <Info>
-              <StyledLink to={`/product/${genarateUrl(product.name)}`} state={{id: product._id}}>
+              <StyledLink to={`/product/${genarateUrl(product.name)}#header`} state={{id: product._id}}>
             <Name>{ product.name.toLowerCase() }</Name>
                 <Price>{formatPrice(product.price)}$</Price>
               </StyledLink>

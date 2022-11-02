@@ -11,7 +11,7 @@ export const Navigation = styled.nav`
         top: 0;
         left: 0;
         height: 100vh;
-        z-index: 4;
+        z-index: 99999999999;
         pointer-events: none;
         opacity: 0;
         transform: translateX(-100%);
@@ -35,6 +35,10 @@ export const BtnClose = styled.button`
     position: absolute;
     top: 10px;
     right: 20px;
+
+    & svg {
+        pointer-events: none;
+    }
 `;
 
 export const CategoryList = styled.ul`

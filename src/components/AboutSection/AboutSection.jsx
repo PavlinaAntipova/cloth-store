@@ -12,7 +12,7 @@ const AboutSection = () => {
           reprehenderit inventore pariatur minus voluptatem eius, fugiat,
           aspernatur provident fuga alias? Porro.
         </Text>
-        <StyledLink to="/about">Read more</StyledLink>
+        <StyledLink to="/about#header">Read more</StyledLink>
     </Section> 
     );
 }

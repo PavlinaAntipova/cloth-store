@@ -28,6 +28,7 @@ const CartItem = ({ product, setSumPrice, setProducts }) => {
         const filterdCartList = parsedCartList.filter(item => item._id !== product._id);
         localStorage.setItem("cart", JSON.stringify([...filterdCartList]));
         setProducts([...filterdCartList]);
+        setSumPrice(prev => ({...prev, [product._id]: 0}));
 
     }
 

@@ -23,7 +23,6 @@ import 'react-toastify/dist/ReactToastify.css';
 export const App = () => {
   const offers = useGetOffersQuery();
 
-
   return (
     <ThemeProvider theme={theme}>
       <Routes>

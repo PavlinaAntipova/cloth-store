@@ -10,8 +10,10 @@ import { formatPrice } from "helper/functions";
 
 
 const CartPage = ({offers}) => {
-  const [products, setProducts] = useState();
-  const [sumPrice, setSumPrice] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [sumPrice, setSumPrice] = useState({});
+
+  console.log(sumPrice);
 
   const calculateTotalSum = () => {
     return Object.values(sumPrice).reduce((acc, number) => acc += number, 0);

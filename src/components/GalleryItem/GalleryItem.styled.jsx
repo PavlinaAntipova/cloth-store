@@ -1,5 +1,5 @@
 import { Btn } from "helper/CommonStyledComponents";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import styled from "styled-components";
 
 export const StyledGalleryItem = styled.li`
@@ -44,7 +44,7 @@ export const Tag = styled.span`
     background-color: #000;
     color: #fff;
     text-align: center;
-    z-index: 222;
+    z-index: 2;
 `;
 
 export const CartBtn = styled(Btn)`

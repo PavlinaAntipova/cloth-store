@@ -9,13 +9,17 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
-    height: 220px;
+max-height: 300px;
+
+@media screen and (max-width: 767px) {
+    margin-bottom: 30px;
+}
 `;
 
 
 export const ImgBox = styled.div`
     position: relative;
-    height: 200px;
+    height: 70%;
 
     &::before {
     content: "";
@@ -36,4 +40,5 @@ export const ImgBox = styled.div`
 
 export const TextBox = styled.div`
 padding: 10px;
+ height: 30%;
 `;

@@ -17,16 +17,30 @@ const Menu = ({categories, isShownMenu, setIsShownMenu}) => {
   const isMobile = useMediaQuery({ query: '(max-width: 1099px)' });
 
   const onCloseMenu = (e) => {
-    if (e.currentTarget !== e.target) {
-        setIsShownMenu(false);
-     }
+    // console.log(e.target);
+
+    // if (e.target.dataset.name === "dropdownBtn") {
+    //   return;
+    // }
+
+    // if (e.currentTarget === e.target) {
+    //   return;
+    // }
+
+    if (e.target.dataset.name === "closeBtn") {
+      setIsShownMenu(false);
+    }
+    
+    if (e.target !== e.currentTarget && e.target.dataset.name !== "dropdownBtn") {
+      setIsShownMenu(false);
+    }
   
   }
 
     return (
         <div>
        <Navigation isShownMenu={isShownMenu} isMobile={isMobile} onClick={onCloseMenu}>
-          {isMobile && <BtnClose type="button"><FontAwesomeIcon icon={faXmark} /></BtnClose>}
+          {isMobile && <BtnClose type="button" data-name="closeBtn"><FontAwesomeIcon icon={faXmark} /></BtnClose>}
       
       <Logo />
           <CategoryList onClick={e => {
@@ -39,7 +53,7 @@ const Menu = ({categories, isShownMenu, setIsShownMenu}) => {
               if (parentCategory === "root") {
                 if (childrenCategories.length) {
                   return <ItemMenu key={_id} dropDownState={isShownDropDown}><NavLink to={`category/${name.toLowerCase()}`}  
-                    style={({ isActive }) => ({ color: isActive ? theme.darkColor : "inherit" })} state={{ id: `${_id}` }}  ><CategoryName>{name}</CategoryName></NavLink>
+                    style={({ isActive }) => ({ color: isActive ? theme.darkColor : "inherit" })} state={{ id: `${_id}` }}><CategoryName>{name}</CategoryName></NavLink>
                     <DropdownBtn type="button" data-name="dropdownBtn">
                       <FontAwesomeIcon icon={faSortDown} />
                     </DropdownBtn>

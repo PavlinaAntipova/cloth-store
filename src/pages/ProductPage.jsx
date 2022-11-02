@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useQuery } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
 import Loader from "components/Loader";
 import GalleryItem from "components/GalleryItem";
@@ -41,7 +42,8 @@ const ProductPage = () => {
   }
 
    const onBuyBtn = () => {
-    addToLocalStorage(data.products[0]);
+     addToLocalStorage(data.products[0]);
+      toast(`${data.products[0].name.toLowerCase()} has added to cart!`);
   }
 
 

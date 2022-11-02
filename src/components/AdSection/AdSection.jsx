@@ -12,7 +12,7 @@ const AdSection = ({offers}) => {
         isError ? <ErrorText>Soon there will be actual offer</ErrorText> : <>
           {!isFetching && data && <><AdTitle>{data.data.offers[0].title}</AdTitle>
         <AdDescription>{data.data.offers[0].text}</AdDescription>
-      <AdBtn to="/offer/current" state={{ title: "tag", value: data.data.offers[0].tag }}>shop now</AdBtn>
+      <AdBtn to="/offer/current#header" state={{ title: "tag", value: data.data.offers[0].tag }}>shop now</AdBtn>
         </>}
       </>
     }
