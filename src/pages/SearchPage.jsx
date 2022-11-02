@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Rings } from 'react-loader-spinner';
 
 import GalleryItem from "components/GalleryItem";
@@ -16,8 +16,6 @@ import { getProducts } from "api/products";
 const SearchPage = () => {
     const [valueInput, setValueInput] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
-
-    const queryClient = useQueryClient();
 
     const queryProducts = useQuery(['products', { title: "name", value: searchQuery }], getProducts, {enabled: !!searchQuery});
     const { data, isError, isLoading, isFetching, status } = queryProducts;

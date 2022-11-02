@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useLocation } from "react-router-dom";
 
 import GalleryItem from "components/GalleryItem";
@@ -12,7 +12,6 @@ import { getProducts } from "api/products";
 
 
 const FilterPage = () => {
-    const queryClient = useQueryClient();
     const {state} = useLocation();
 
     const queryProducts = useQuery(['products', { title: state.title, value: state.value }], getProducts);

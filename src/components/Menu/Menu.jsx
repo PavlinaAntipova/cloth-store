@@ -51,7 +51,8 @@ const Menu = ({categories, isShownMenu, setIsShownMenu}) => {
               } else {
                   return <ItemMenu key={_id}><NavLink to={`category/${name.toLowerCase()}`} state={{id:`${_id}`}} style={({ isActive }) => ({ color: isActive ? theme.darkColor : "inherit" })}>{name}</NavLink></ItemMenu>
               }
-              }  
+              } 
+              return null;
             })}
           </CategoryList>
           

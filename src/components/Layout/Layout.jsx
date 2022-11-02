@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Outlet } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 import Footer from "components/Footer";
@@ -16,9 +16,8 @@ import { getCategories } from "api/categories";
 
 const Layout = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 1099px)' });
-  const [isShownMenu, setIsShownMenu] = useState(() => {if(isMobile) return false});
-    const queryClient = useQueryClient();
-    const root = document.querySelector('#root');
+    const [isShownMenu, setIsShownMenu] = useState(() => { if (isMobile) return false });
+    const root = useMemo(() => document.querySelector('#root'), []);
 
     const queryCategories = useQuery(['categories'], getCategories);
     const { data, isError, isLoading, isFetching } = queryCategories;
@@ -31,6 +30,7 @@ const Layout = () => {
         }
 
         return () => {clearAllBodyScrollLocks()}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isShownMenu]);
 
     return (<>

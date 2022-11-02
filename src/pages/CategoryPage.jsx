@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { useLocation } from "react-router-dom";
 
 import AdSection from "components/AdSection";
@@ -15,7 +15,6 @@ import { getCategoryById } from "api/categories";
 
 
 const CategoryPage = ({offers}) => {
-    const queryClient = useQueryClient();
     const { state } = useLocation();
 
     const queryCategory = useQuery(['category', state.id], getCategoryById);

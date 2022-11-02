@@ -34,7 +34,8 @@ const GalleryItem = ({ product }) => {
 
   useEffect(() => {
         getImageUrl(product.img).then(setImgUrl);
-        }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [product.img]);
 
     return (
       <StyledGalleryItem>

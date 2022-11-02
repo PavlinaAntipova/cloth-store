@@ -1,4 +1,4 @@
-import { Select, Text } from "helper/CommonStyledComponents";
+import { Text } from "helper/CommonStyledComponents";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
 
